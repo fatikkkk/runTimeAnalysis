@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace runTimeAnalysis
+namespace sortSelection
 {
     class Program
     {
@@ -20,7 +20,7 @@ namespace runTimeAnalysis
             stp.Start();
             Timing timing = new Timing();
             timing.StartTime();
-            
+
             int min; // Минимальный индекс массива
             int temp; // Вспомогательная переменная
             for (int i = 0; i < a.Length; i++)
