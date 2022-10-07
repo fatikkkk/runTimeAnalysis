@@ -20,9 +20,15 @@ namespace binarySearch
             timing.StartTime();
             Stopwatch stp = new Stopwatch();
             stp.Start();
+
+            // Создание идексов нижней и верхней границы
             int low = 0;
             int high = a.Length - 1;
+            
+            // Создание индекса элемента массива, находящегося в середине
             int guess = 0;
+
+            // Создание переменной поиска
             string searchValueStr;
             int searchValue = 0;
             while (searchValue < 1 || searchValue > 1000)
@@ -40,11 +46,16 @@ namespace binarySearch
             }
             while (a[guess] != searchValue)
             {
+                // Середина массива
                 guess = (low + high) / 2;
+
+                // Сдвигаем верхнюю границу
                 if (searchValue < a[guess])
                 {
                     high = guess - 1;
                 }
+
+                // Сдвигаем нижнюю границу
                 else if (searchValue > a[guess])
                 {
                     low = guess + 1;
@@ -60,7 +71,7 @@ namespace binarySearch
             {
                 Console.WriteLine("Позиция числа " + searchValue + " = " + guess );
                 Console.WriteLine($"StopWatch: {stp.Elapsed}");
-                Console.WriteLine($"Timing: {timing.Result().ToString("hh: mm")}");
+                Console.WriteLine($"Timing: {timing.Result()}");
             }
         }
         class Timing

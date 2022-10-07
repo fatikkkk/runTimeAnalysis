@@ -20,25 +20,28 @@ namespace runTimeAnalysis
             stp.Start();
             Timing timing = new Timing();
             timing.StartTime();
-
-            int min;
-            int temp;
+            
+            int min; // Минимальный индекс массива
+            int temp; // Вспомогательная переменная
             for (int i = 0; i < a.Length; i++)
             {
                 min = i;
                 for (int j = i + 1; j < a.Length; j++)
                 {
+                    // Сравниваем элемент массива j с минимальным элементом
                     if (a[j] < a[min])
                     {
                         min = j;
                     }
                 }
-                temp = a[min];
-                a[min] = a[i];
-                a[i] = temp;
+                temp = a[min]; // Копируем значение минимального элемента
+                a[min] = a[i]; // На место минимального элемента присваиваем значение неотсортированной части
+                a[i] = temp; // Присваиваем значение временной переменной
             }
             stp.Stop();
             timing.StopTime();
+
+            //Вывод массива
             for (int i = 0; i < a.Length; i++)
             {
                 Console.WriteLine(a[i]);
